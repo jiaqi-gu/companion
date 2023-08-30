@@ -153,7 +153,7 @@ module.exports.addProviderOptions = (companionOptions, grantConfig) => {
       if (oauthDomain) {
         const fullRedirectPath = getURLBuilder(companionOptions)(redirectPath, isExternal, true)
         // eslint-disable-next-line no-param-reassign
-        grantConfig[authProvider].redirect_uri = testUri
+        grantConfig[authProvider].redirect_uri = `${server.protocol}://${oauthDomain}${fullRedirectPath}`
       }
 
       if (server.implicitPath) {
